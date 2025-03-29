@@ -10,7 +10,12 @@ const initialState = {
 const movieSlice = createSlice({
   name: "movies",
   initialState,
-  reducers: { addMovie: () => {}, removeMovies: () => {} },
+  reducers: {
+    addMovie: () => {},
+    removeMovies: (state, action) => {
+      state.movies = state.movies.filter((movie) => movie.id != action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchMovies.pending, (state) => {
       state.status = "loading";

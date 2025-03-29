@@ -1,12 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;1,600&display=swap');
+
 .movie-card-container{
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 8px;
     margin: 15px 15px;
    
+}
+
+.remove-btn{
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 50%;
+    background-color: rgb(235, 14, 14);
+    box-shadow: 5px 5px 10px rgb(75, 1, 1);
+    border: none;
+    outline: none;
+}
+
+.remove-btn:hover{
+    cursor: pointer;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
 }
 
 .movie-card-container img, .movie-name, .movie-info{
@@ -17,12 +44,12 @@
     box-shadow: 5px 5px 20px black;
 }
 
-.movie-name{
+
+.movie-name, .remove-btn{
     display: flex;
 }
 
 .movie-name{
-    
     flex-wrap: wrap;
     margin: 10px auto;
     color: rgb(163, 163, 163);
