@@ -25,21 +25,24 @@ function App() {
 
   return (
     <>
-      <Header />
-      {!searched.length && (
-        <div className="movies-wrapper">
-          {movies.map((movie) => (
-            <Moviecard key={movie.id} movie={movie} />
-          ))}
-        </div>
-      )}
-      {searched.length && (
-        <div className="movies-wrapper">
-          {searched.map((movie) => (
-            <Moviecard key={movie.id} movie={movie} />
-          ))}
-        </div>
-      )}
+      <div className="app">
+        {status === "loading" && <i className="fa-solid fa-spinner"></i>}
+        <Header />
+        {!searched.length && (
+          <div className="movies-wrapper">
+            {movies.map((movie) => (
+              <Moviecard key={movie.id} movie={movie} />
+            ))}
+          </div>
+        )}
+        {searched.length && (
+          <div className="movies-wrapper">
+            {searched.map((movie) => (
+              <Moviecard key={movie.id} movie={movie} />
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 }

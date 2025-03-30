@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { movieActions } from "../store/movieSlice";
 import "./Header.css";
 
 const Header = () => {
+  const inputRef = useRef();
   const [searchClicked, setSearchClicked] = useState(false);
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    console.log("setting to true");
     setSearchClicked(true);
   };
 
@@ -18,6 +18,7 @@ const Header = () => {
       <div className="search">
         <input
           className={searchClicked ? "show-input" : ""}
+          ref={inputRef}
           type="text"
           placeholder="Search Movies..."
           onChange={(e) => {
@@ -25,9 +26,11 @@ const Header = () => {
             dispatch(movieActions.searchMovie(e.target.value));
           }}
         />
-        <button className="btn-search" onClick={clickHandler}>
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
+        {!searchClicked && (
+          <button className="btn-search" onClick={clickHandler}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        )}
       </div>
     </div>
   );

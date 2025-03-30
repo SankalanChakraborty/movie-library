@@ -15,6 +15,9 @@ const movieSlice = createSlice({
     addMovie: (state, action) => {},
     removeMovies: (state, action) => {
       state.movies = state.movies.filter((movie) => movie.id != action.payload);
+      state.searched = state.movies.filter(
+        (movie) => movie.id != action.payload
+      );
     },
     searchMovie: (state, action) => {
       state.searched = state.movies.filter((movie) =>
