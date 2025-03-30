@@ -7,16 +7,23 @@ const Moviecard = ({ movie }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="movie-card-container">
+    <div className="movie-card-container" key={movie.id}>
       <button
         className={`remove-btn `}
         onClick={() => dispatch(movieActions.removeMovies(movie.id))}
       >
         -
       </button>
-      <img src={movie.medium_cover_image} />
+      <img src={movie.poster} />
       <span className="movie-name">{movie.title}</span>
-      <span className="movie-genre">{movie.genres[0]}</span>
+      <div className="genre">
+        {movie.genre.map((genre) => (
+          <span key={genre} className="movie-genre">
+            {genre}&nbsp;{" "}
+          </span>
+        ))}
+      </div>
+
       <span className="movie-rating">
         IMDb:{" "}
         <em

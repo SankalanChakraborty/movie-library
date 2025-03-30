@@ -5,15 +5,22 @@ const initialState = {
   movies: [],
   status: "idle",
   error: null,
+  searched: [],
 };
 
 const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovie: () => {},
+    addMovie: (state, action) => {},
     removeMovies: (state, action) => {
       state.movies = state.movies.filter((movie) => movie.id != action.payload);
+    },
+    searchMovie: (state, action) => {
+      state.searched = state.movies.filter((movie) =>
+        movie.title.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      console.log(state.searched);
     },
   },
   extraReducers: (builder) => {

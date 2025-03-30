@@ -7,11 +7,17 @@ import Moviecard from "./Components/Moviecard";
 
 function App() {
   const dispatch = useDispatch();
-  const { movies, status, error } = useSelector((store) => store.movies);
+  const { movies, status, error, searched } = useSelector(
+    (store) => store.movies
+  );
 
   useEffect(() => {
     dispatch(fetchMovies());
   }, [dispatch]);
+
+  useEffect(() => {
+    console.log("Movies: ", movies);
+  }, [movies]);
 
   useEffect(() => {
     console.log("Movies Data:", movies); // Log movies data
@@ -20,11 +26,20 @@ function App() {
   return (
     <>
       <Header />
-      <div className="movies-wrapper">
-        {movies.map((movie) => (
-          <Moviecard key={movie.id} movie={movie} />
-        ))}
-      </div>
+      {!searched.length && (
+        <div className="movies-wrapper">
+          {movies.map((movie) => (
+            <Moviecard key={movie.id} movie={movie} />
+          ))}
+        </div>
+      )}
+      {searched.length && (
+        <div className="movies-wrapper">
+          {searched.map((movie) => (
+            <Moviecard key={movie.id} movie={movie} />
+          ))}
+        </div>
+      )}
     </>
   );
 }

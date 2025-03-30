@@ -45,7 +45,7 @@
 }
 
 
-.movie-name, .remove-btn{
+.genre, .movie-name, .remove-btn{
     display: flex;
 }
 
