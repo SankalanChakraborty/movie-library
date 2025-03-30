@@ -5,15 +5,25 @@ const initialState = {
   movies: [],
   status: "idle",
   error: null,
-  searched: [],
+  searchedMovie: [],
+  favourites: [],
+  filter: [],
 };
 
 const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovie: (state, action) => {},
-    removeMovies: (state, action) => {
+    addMovie: (state, action) => {
+      let existingMovie = state.favourites.find(
+        (movie) => movie.id === action.payload.id
+      );
+      if (existingMovie) {
+      } else {
+        state.favourites = [...state.favourites, action.payload];
+      }
+    },
+    removeMovie: (state, action) => {
       state.movies = state.movies.filter((movie) => movie.id != action.payload);
       state.searched = state.movies.filter(
         (movie) => movie.id != action.payload

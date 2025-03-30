@@ -11,20 +11,36 @@
    
 }
 
-.remove-btn{
+.btn{
+    width: 15px;
+    height: 15px;
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 8px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+}
+
+.action-btns{
     position: absolute;
     top: 15px;
     right: 15px;
-    border-radius: 50%;
-    background-color: rgb(235, 14, 14);
-    box-shadow: 5px 5px 10px rgb(75, 1, 1);
-    border: none;
-    outline: none;
+    display: flex;
+    flex-direction: column;
+
 }
 
-.remove-btn:hover{
+.remove-btn{
+    background-color: rgb(235, 14, 14);
+}
+
+.add-btn{
+    background-color: green;
+}
+
+.btn:hover{
     cursor: pointer;
 }
 

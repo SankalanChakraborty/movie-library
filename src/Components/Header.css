@@ -1,11 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-.app-header{
+
+.app-header, .nav-btns ul{
     display: flex;
+}
+
+.nav-btns ul{
+    list-style: none;
+}
+
+.nav-btns ul li{
+    font-size: 20px;
+    margin: 0px 50px;
+    padding: 7px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-btns ul li:hover{
+    cursor: pointer;
+    color: silver;
+}
+
+
+.app-header{
     justify-content: space-between;
     align-items: center;
-    margin: auto 20px;
+    margin: 10px 20px;
 }
 
 .app-header h2{
@@ -36,7 +62,7 @@ input{
     outline: none;
     border: 1px solid silver;
     border-radius: 26px;
-    animation: mymove 0.5s;
+    animation: mymove 0.5s ease-in-out;
 }
 
 @keyframes mymove {

@@ -8,12 +8,20 @@ const Moviecard = ({ movie }) => {
 
   return (
     <div className="movie-card-container" key={movie.id}>
-      <button
-        className={`remove-btn `}
-        onClick={() => dispatch(movieActions.removeMovies(movie.id))}
-      >
-        -
-      </button>
+      <div className="action-btns">
+        <button
+          className={`remove-btn btn`}
+          onClick={() => dispatch(movieActions.removeMovie(movie.id))}
+        >
+          -
+        </button>
+        <button
+          className={`add-btn btn`}
+          onClick={() => dispatch(movieActions.addMovie(movie))}
+        >
+          +
+        </button>
+      </div>
       <img src={movie.poster} />
       <span className="movie-name">{movie.title}</span>
       <div className="genre">

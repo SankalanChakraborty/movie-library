@@ -15,6 +15,12 @@ const Header = () => {
   return (
     <div className="app-header">
       <h2>Trending Movies</h2>
+      <div className="nav-btns">
+        <ul>
+          <li>Filter</li>
+          <li>Favourites</li>
+        </ul>
+      </div>
       <div className="search">
         <input
           className={searchClicked ? "show-input" : ""}
